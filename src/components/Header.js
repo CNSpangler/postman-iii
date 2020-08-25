@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../App/App.css';
+import styles from './App/App.css';
 
 const Header = ({ title = 'PATCHMAN' }) => (
   <div className={styles.Header}>
