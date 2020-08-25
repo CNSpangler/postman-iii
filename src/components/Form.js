@@ -14,8 +14,17 @@ const RadioButtons = methods.map(method => (
 const Form = () => (
   <div className={styles.Form}>
     <div className={styles.radioButtonContainer}>
+    <input id="POST" type="radio" name="POST" value="POST" />
+    <label className={styles.radioButton} htmlFor="POST">"POST"</label>
+
       {/* {radioButtons} */}
     </div>
+
+    <input type="text" className={styles.url} />
+      <input type="textarea" placeholder="Raw JSON Body" className={styles.body} />
+      <div className={styles.headers}>Placeholder for headers</div>
+      <button className={styles.button}>Submit</button>
+
   </div>
 );
 
