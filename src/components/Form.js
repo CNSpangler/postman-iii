@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
+
+const url = useSelector(getUrl);
 
 const methods = ['POST', 'GET', 'PATCH', 'PUT', 'DELETE'];
 
