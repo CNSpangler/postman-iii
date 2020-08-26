@@ -15,3 +15,11 @@ export const setMethod = (method) => dispatch => {
     payload: method
   });
 };
+
+export const SET_HEADER = 'SET_HEADER';
+export const setHeader = (header) => dispatch => {
+  dispatch({
+    type: SET_HEADER,
+    payload: header
+  });
+};
