@@ -1,6 +1,6 @@
 import {SET_URL} from './actions';
 const initialState = {
-  url: 'https://',
+  url: '',
   method: '',
   body: {},
   header: {},

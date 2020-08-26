@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
+import { setUrl } from '../redux/actions';
+import { getUrl } from '../redux/selectors';
 
-// const url = useSelector(getUrl);
 const methods = ['POST', 'GET', 'PATCH', 'PUT', 'DELETE'];
-console.log(methods.map(method => method));
-
 const RadioButtons = methods.map(method => (
   <div className={styles.radioButtonContainer} key={method}>
     <input id={method} type="radio" name={method} value={method} />
@@ -14,18 +13,30 @@ const RadioButtons = methods.map(method => (
   )
 );
 
-const Form = () => (
-  <div className={styles.Form}>
-    <div className={styles.RadioGroup}>
-      {RadioButtons}
-    </div>
+const Form = () => {
+  const dispatch = useDispatch();
+  const handleUrlChange = ({target}) => {
+    console.log(target.value);
+    dispatch(setUrl(target.value));
+  }
 
-    <input type="text" className={styles.url} />
+  const handleClick = () => {
+    const url = useSelector(getUrl);
+    console.log('submitted url', url)
+  }
+
+  return (
+    <div className={styles.Form}>
+      <div className={styles.RadioGroup}>
+        {RadioButtons}
+      </div>
+
+      <input type="text" className={styles.url} onChange={handleUrlChange} />
       <input type="textarea" placeholder="Raw JSON Body" className={styles.body} />
       <div className={styles.headers}>Placeholder for headers</div>
       <button className={styles.button}>Submit</button>
-
-  </div>
-);
+    </div>
+  )
+};
 
 export default Form;
