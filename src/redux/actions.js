@@ -23,3 +23,11 @@ export const setHeader = (header) => dispatch => {
     payload: header
   });
 };
+
+export const SET_RESULTS = 'SET_RESULTS';
+export const setResults = (results) => dispatch => {
+  dispatch({
+    type: SET_RESULTS,
+    payload: results
+  });
+};
