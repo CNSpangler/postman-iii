@@ -5,14 +5,13 @@ export const setUrl = (url) => dispatch => {
   dispatch({
     type: SET_URL,
     payload: url
-  })
-}
-// export const setUrl = (url) => dispatch => {
-//   return fetchData(url)
-//     .then(resultData => {
-//       dispatch({
-//         type: SET_URL,
-//         payload: resultData
-//       })
-//     })
-// }
+  });
+};
+
+export const SET_METHOD = 'SET_METHOD';
+export const setMethod = (method) => dispatch => {
+  dispatch({
+    type: SET_METHOD,
+    payload: method
+  });
+};

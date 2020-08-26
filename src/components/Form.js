@@ -15,14 +15,16 @@ const RadioButtons = methods.map(method => (
 
 const Form = () => {
   const dispatch = useDispatch();
+  // const select = useSelector(getUrl);
+  // const address = useSelector(getUrl);
+
   const handleUrlChange = ({target}) => {
     console.log(target.value);
     dispatch(setUrl(target.value));
   }
 
   const handleClick = () => {
-    const url = useSelector(getUrl);
-    console.log('submitted url', url)
+    console.log('test');
   }
 
   return (
@@ -34,7 +36,7 @@ const Form = () => {
       <input type="text" className={styles.url} onChange={handleUrlChange} />
       <input type="textarea" placeholder="Raw JSON Body" className={styles.body} />
       <div className={styles.headers}>Placeholder for headers</div>
-      <button className={styles.button}>Submit</button>
+      <button className={styles.button} onClick={handleClick}>Submit</button>
     </div>
   )
 };

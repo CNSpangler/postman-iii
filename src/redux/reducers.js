@@ -1,17 +1,20 @@
 import {SET_URL} from './actions';
 const initialState = {
   url: '',
-  method: '',
+  method: 'GET',
   body: {},
   header: {},
-  results: {}
+  results: []
 }
 
 export default function reducer(state = initialState, { type, payload }) {
   switch(type) {
+    case SET_URL:
+      return { ...state, url: payload };
+    case SET_METHOD:
+      return { ...state, method: payload };
+
     default:
       return state;
-    case SET_URL:
-      return { ...state,  url: payload };
   }
 }
