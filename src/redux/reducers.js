@@ -1,6 +1,6 @@
 import { SET_URL, SET_METHOD } from './actions';
 const initialState = {
-  url: 'A',
+  url: '',
   method: 'GET',
   body: {},
   header: {},

@@ -37,7 +37,7 @@ const Form = () => {
       <input type="text" className={styles.url} onChange={handleUrlChange} />
       <input type="textarea" placeholder="Raw JSON Body" className={styles.body} />
       <div className={styles.headers}>Placeholder for headers</div>
-      <button className={styles.button} onClick={handleClick}>Submit</button>
+      <button className={styles.button} onClick={handleClick(url)}>Submit</button>
     </div>
   )
 };
