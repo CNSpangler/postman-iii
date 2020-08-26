@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
-import { setUrl } from '../redux/actions';
+import { setUrl, setResults } from '../redux/actions';
 import { getUrl } from '../redux/selectors';
 import { fetchData } from '../../services';
 
@@ -25,7 +25,7 @@ const Form = () => {
 
   const handleClick = (url) => {
     fetchData(url)
-      .then(res => console.log(res));
+      .then(res => dispatch(setResults(res)));
   }
 
   return (
