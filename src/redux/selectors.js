@@ -1,3 +1,3 @@
-export const getUrl = state => state.reducer.url;
+export const getUrl = state => state.url;
 
-export const getMethod = state => state.reducer.method;
+export const getMethod = state => state.method;

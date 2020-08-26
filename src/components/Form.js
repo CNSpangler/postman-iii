@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
 import { setUrl } from '../redux/actions';
 import { getUrl } from '../redux/selectors';
+import { fetchData } from '../../services';
 
 const methods = ['POST', 'GET', 'PATCH', 'PUT', 'DELETE'];
 const RadioButtons = methods.map(method => (
@@ -15,16 +16,16 @@ const RadioButtons = methods.map(method => (
 
 const Form = () => {
   const dispatch = useDispatch();
-  // const select = useSelector(getUrl);
-  // const address = useSelector(getUrl);
+  const url = useSelector(getUrl);
 
   const handleUrlChange = ({target}) => {
     console.log(target.value);
     dispatch(setUrl(target.value));
   }
 
-  const handleClick = () => {
-    console.log('test');
+  const handleClick = (url) => {
+    fetchData(url)
+      .then(res => console.log(res));
   }
 
   return (

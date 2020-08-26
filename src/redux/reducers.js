@@ -1,6 +1,6 @@
-import {SET_URL} from './actions';
+import { SET_URL, SET_METHOD } from './actions';
 const initialState = {
-  url: '',
+  url: 'A',
   method: 'GET',
   body: {},
   header: {},
