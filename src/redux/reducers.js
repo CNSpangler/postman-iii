@@ -4,7 +4,8 @@ const initialState = {
   method: 'GET',
   body: {},
   header: {},
-  results: []
+  results: [],
+  history: []
 }
 
 export default function reducer(state = initialState, { type, payload }) {

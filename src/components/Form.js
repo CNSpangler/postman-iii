@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
-import { setUrl, setResults } from '../redux/actions';
+import { setUrl, setResults, setMethod } from '../redux/actions';
 import { getUrl } from '../redux/selectors';
 import { fetchData } from '../../services';
 
@@ -23,6 +23,11 @@ const Form = () => {
     dispatch(setUrl(target.value));
   }
 
+  const handleMethodChange = ({target}) => {
+    console.log(target.value);
+    dispatch(setMethod(target.value));
+  }
+
   const handleClick = (url) => {
     fetchData(url)
       .then(res => dispatch(setResults(res)));
@@ -30,7 +35,7 @@ const Form = () => {
 
   return (
     <div className={styles.Form}>
-      <div className={styles.RadioGroup}>
+      <div className={styles.RadioGroup} onChange={handleMethodChange}>
         {RadioButtons}
       </div>
 
