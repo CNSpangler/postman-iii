@@ -19,13 +19,15 @@ const Form = () => {
   const url = useSelector(getUrl);
 
   const handleUrlChange = ({target}) => {
-    console.log(target.value);
     dispatch(setUrl(target.value));
   }
 
   const handleMethodChange = ({target}) => {
-    console.log(target.value);
     dispatch(setMethod(target.value));
+  }
+
+  const handleBodyChange = ({target}) => {
+    dispatch(setBody(target.value));
   }
 
   const handleClick = (url) => {
@@ -40,7 +42,7 @@ const Form = () => {
       </div>
 
       <input type="text" className={styles.url} onChange={handleUrlChange} />
-      <input type="textarea" placeholder="Raw JSON Body" className={styles.body} />
+      <input type="textarea" placeholder="Raw JSON Body" className={styles.body} onChange={handleBodyChange} />
       <div className={styles.headers}>Placeholder for headers</div>
       <button className={styles.button} onClick={handleClick(url)}>Submit</button>
     </div>

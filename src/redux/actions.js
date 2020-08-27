@@ -16,6 +16,14 @@ export const setMethod = (method) => dispatch => {
   });
 };
 
+export const SET_BODY = 'SET_BODY';
+export const setBody = (body) => dispatch => {
+  dispatch({
+    type: SET_BODY,
+    payload: body
+  });
+};
+
 export const SET_HEADER = 'SET_HEADER';
 export const setHeader = (header) => dispatch => {
   dispatch({
