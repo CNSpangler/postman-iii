@@ -44,6 +44,6 @@ export const SET_HISTORY = 'SET_HISTORY';
 export const setHistory = (history) => dispatch => {
   dispatch({
     type: SET_HISTORY,
-    payload: history
+    payload: [ ...state.history, history]
   });
 };

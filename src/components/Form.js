@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
-import { setUrl, setResults, setMethod, setBody } from '../redux/actions';
-import { getUrl } from '../redux/selectors';
 import { fetchData } from '../../services';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUrl, setResults, setMethod, setBody, setHistory, setHeader } from '../redux/actions';
+import { getUrl, getHistory } from '../redux/selectors';
 
 const methods = ['POST', 'GET', 'PATCH', 'PUT', 'DELETE'];
 const RadioButtons = methods.map(method => (
@@ -17,6 +17,7 @@ const RadioButtons = methods.map(method => (
 const Form = () => {
   const dispatch = useDispatch();
   const url = useSelector(getUrl);
+  const history = useSelector(getHistory);
 
   const handleUrlChange = ({target}) => {
     dispatch(setUrl(target.value));
@@ -30,9 +31,14 @@ const Form = () => {
     dispatch(setBody(target.value));
   }
 
-  const handleClick = (url) => {
-    fetchData(url)
-      .then(res => dispatch(setResults(res)));
+  const handleHeaderChange = ({target}) => {
+    dispatch(setHeader(target.value));
+  }
+
+  const handleClick = (url, method, body) => {
+    fetchData(url, method, body)
+      .then(res => dispatch(setResults(res)))
+      .then(res => dispatch(setHistory(res)));
   }
 
   return (
@@ -43,7 +49,7 @@ const Form = () => {
 
       <input type="text" className={styles.url} onChange={handleUrlChange} />
       <input type="textarea" placeholder="Raw JSON Body" className={styles.body} onChange={handleBodyChange} />
-      <div className={styles.headers}>Placeholder for headers</div>
+      <input type="textarea" placeholder="Headers" className={styles.headers} onChange={handleHeaderChange} />
       <button className={styles.button} onClick={handleClick(url)}>Submit</button>
     </div>
   )

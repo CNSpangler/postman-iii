@@ -5,7 +5,7 @@ const initialState = {
   body: {},
   header: {},
   results: [],
-  history: []
+  history: [],
 }
 
 export default function reducer(state = initialState, { type, payload }) {
