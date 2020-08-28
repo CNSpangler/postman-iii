@@ -1,5 +1,11 @@
-export const fetchData = (url) => {
-  return fetch(url)
+export const fetchData = (url, method, body) => {
+  return fetch(url, {
+    method,
+    body: (method === 'GET' || method === 'DELETE') ? null : JSON.stringify(JSON.parse(body)),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
     .then(res => res.json())
     .catch(err => console.log(err));
 }
