@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './App/App.css';
-import { setUrl, setResults, setMethod } from '../redux/actions';
+import { setUrl, setResults, setMethod, setBody } from '../redux/actions';
 import { getUrl } from '../redux/selectors';
 import { fetchData } from '../../services';
 

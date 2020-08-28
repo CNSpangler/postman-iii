@@ -1,4 +1,4 @@
-import { SET_URL, SET_METHOD, SET_HEADER, SET_RESULTS, SET_BODY } from './actions';
+import { SET_URL, SET_METHOD, SET_HEADER, SET_RESULTS, SET_BODY, SET_HISTORY } from './actions';
 const initialState = {
   url: '',
   method: 'GET',
@@ -20,6 +20,8 @@ export default function reducer(state = initialState, { type, payload }) {
       return { ...state, header:payload };
     case SET_RESULTS:
       return { ...state, results: payload };
+    case SET_HISTORY:
+      return { ...state, history: payload };
 
     default:
       return state;

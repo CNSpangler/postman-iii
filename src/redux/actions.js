@@ -39,3 +39,11 @@ export const setResults = (results) => dispatch => {
     payload: results
   });
 };
+
+export const SET_HISTORY = 'SET_HISTORY';
+export const setHistory = (history) => dispatch => {
+  dispatch({
+    type: SET_HISTORY,
+    payload: history
+  });
+};
